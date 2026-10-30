@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biln-lm"
+version = "1.0.0"
+description = "Masked language model and embedding generator for peptides in BILN notation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.40",
+    "tokenizers>=0.19",
+    "datasets>=2.14",
+    "accelerate>=1.1.0",
+    "omegaconf>=2.3",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.4",
+    "scipy>=1.10",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+hpo = ["optuna>=3.4", "tensorboard>=2.13"]
+chem = ["rdkit>=2023.9", "molfeat>=0.9", "datamol>=0.11", "mapchiral>=1.0"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+biln-generate = "biln_lm.cli.generate_synthetic:main"
+biln-train-tokenizer = "biln_lm.cli.train_tokenizer:main"
+biln-pretrain = "biln_lm.cli.pretrain:main"
+biln-embed = "biln_lm.cli.embed:main"
+biln-hpo = "biln_lm.cli.hpo:main"
+biln-evaluate = "biln_lm.cli.evaluate_downstream:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+biln_lm = ["py.typed", "data/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

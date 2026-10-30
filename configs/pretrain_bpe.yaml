@@ -1,0 +1,10 @@
+# Pretraining with the BPE tokenizer
+
+_base_: pretrain.yaml
+
+paths:
+  output_dir: outputs/pretrain_bpe
+
+tokenizer:
+  kind: bpe
+  vocab_size: 3000

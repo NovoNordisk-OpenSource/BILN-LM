@@ -1,0 +1,8 @@
+# Optional extras. The core package works without any of these.
+# molecular fingerprints for the downstream baseline comparison
+rdkit>=2023.9
+molfeat>=0.9
+datamol>=0.11
+mapchiral
+# hyper-parameter search
+optuna>=3.4

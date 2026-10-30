@@ -1,0 +1,45 @@
+# Data Licensing and Attribution
+
+This repository contains data derived from third-party sources.
+
+## ChEMBL
+
+Source:
+https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/
+
+Copyright:
+EMBL-EBI and ChEMBL contributors.
+
+License:
+Creative Commons Attribution-ShareAlike 3.0 Unported
+(CC BY-SA 3.0)
+
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Attribution:
+"ChEMBL data is provided by EMBL-EBI under the CC BY-SA 3.0
+license. Please refer to the ChEMBL website for version-specific
+attribution requirements."
+
+Files:
+biln_db.csv contain ChEMBL28 peptide molecules
+helm_monomer_library.csv contain public monomers from the ChEMBL database.
+
+## CycPeptMPDB
+
+Source:
+http://cycpeptmpdb.com/
+
+Copyright:
+CycPeptMPDB authors and contributors.
+
+Attribution:
+The data is publicly available for academic and commercial purposes.
+
+Files:
+helm_monomer_library.csv contain public monomers from the CycPeptMPDB dataset.
+
+## Repository Code
+
+Unless otherwise noted, the source code in this repository is licensed
+under the MIT License (see LICENSE file).

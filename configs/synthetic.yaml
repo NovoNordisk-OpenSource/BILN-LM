@@ -1,0 +1,30 @@
+# Synthetic BILN corpus generation: de-novo sampling + augmentation of a real corpus.
+
+paths:
+  output_dir: data
+
+synthetic:
+  out_file: synthetic_biln.csv
+  seed: 1
+
+  de_novo:
+    n: 50000
+    length_range: [5, 30]
+    p_non_canonical: 0.3      # per-residue probability of a non-canonical monomer
+    p_n_terminal_cap: 0.15
+    p_c_terminal_cap: 0.25
+    p_cyclic: 0.2             # head-to-tail or side-chain macrocycle
+    p_disulfide: 0.1          # extra Cys-Cys bridge
+    p_multi_chain: 0.05
+    max_chains: 3
+
+  augment:
+    enabled: true
+    source_files: [biln_db.csv]
+    source_column: biln
+    n_per_sequence: 1
+    max_source_sequences: null
+    operations: [point_mutation, analog_swap, truncation, segment_shuffle]
+    p_mutation: 0.1
+
+  deduplicate: true

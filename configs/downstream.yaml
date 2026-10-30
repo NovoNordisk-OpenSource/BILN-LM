@@ -1,0 +1,43 @@
+# Downstream evaluation of pretrained BILN-LM embeddings with scikit-learn heads.
+
+paths:
+  output_dir: outputs/downstream
+
+downstream:
+  model_dir: outputs/pretrain
+  pooling: mean
+  batch_size: 32
+  cache_dir: null
+  normalize_biln: true   # map three-letter residue codes onto library symbols
+  algorithms: [svm, rf, knn]
+  protein_model: facebook/esm2_t12_35M_UR50D
+  tasks: []          # empty means every task below
+
+  task_definitions:
+    - name: c-cpp
+      file: c-cpp.csv
+      type: classification
+      biln_column: BILN
+      label_column: labels
+    - name: c-sol
+      file: c-sol.csv
+      type: classification
+      biln_column: BILN
+      label_column: labels
+    - name: nc-cpp
+      file: nc-cpp.csv
+      type: regression
+      biln_column: BILN
+      label_column: labels
+    - name: c-binding
+      file: c-binding.csv
+      type: regression
+      biln_column: BILN
+      label_column: labels
+      protein_column: seq1
+    - name: nc-binding
+      file: nc-binding.csv
+      type: regression
+      biln_column: BILN
+      label_column: labels
+      protein_column: seq1
