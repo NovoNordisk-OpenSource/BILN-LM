@@ -156,7 +156,7 @@ The binding datasets write residues as three-letter codes (`HIS-PRO-ARG`);
 There is a set of modules to test all the packages functionalities. This include public and toy sequences:
 
 ```bash
-.venv/bin/python -m pytest tests -q
+python -m pytest tests -q
 ```
 
 ## References
